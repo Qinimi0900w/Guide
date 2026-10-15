@@ -29,7 +29,7 @@ const GUIDE_CONFIG = {
 
   // Адрес визитки в интернете, например "https://example.com/guide/".
   // Нужен для QR-кода и кнопки «Поделиться». Если пусто — берётся адрес текущей страницы.
-  shareUrl: "",
+  shareUrl: "https://booka.life/business/921fef68-f1fc-4be3-b6db-8d3c09507e5e",
 
   // --- Обо мне ---
   about: {
