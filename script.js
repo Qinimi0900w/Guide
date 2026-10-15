@@ -265,6 +265,12 @@
 
   /* ---------- Туры и фильтр по сложности ---------- */
 
+  // Шапка карточки: фото (если указано image), под ним цвет — он виден, пока фото грузится или если файла нет
+  function tourBackground(t) {
+    const fallback = t.color || "linear-gradient(135deg, #6E8F7E, #2E5443)";
+    return t.image ? cssUrl(t.image) + " center / cover no-repeat, " + fallback : fallback;
+  }
+
   function tourMeta(t) {
     return [tr(t.duration), levelLabel(t.level).toLowerCase()].filter(Boolean).join(" · ");
   }
@@ -276,7 +282,7 @@
 
     list.replaceChildren(...shown.map((t) =>
       el("article", { class: "tour" }, [
-        el("div", { class: "tour__cover", style: "background:" + t.color }, [
+        el("div", { class: "tour__cover", style: "background:" + tourBackground(t) }, [
           el("span", { class: "tour__meta", text: tourMeta(t) }),
         ]),
         el("div", { class: "tour__body" }, [
