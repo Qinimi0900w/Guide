@@ -14,7 +14,7 @@ const UI_TEXT = {
     aboutTitle: "Обо мне",
     langGroup: "Язык страницы",
     topicGroup: "Сложность туров",
-    levels: { easy: "Легко", medium: "Средне", hard: "Тяжело" },
+    levels: { easy: "Легкое", medium: "Среднее", hard: "Тяжелое" },
     carouselAria: "Акции",
     slideWord: "слайд",
     bannerDot: "Баннер {t}",
