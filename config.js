@@ -135,7 +135,6 @@ const GUIDE_CONFIG = {
 
   // --- Контакты для файла «Сохранить контакт» (.vcf) ---
   contact: {
-    phone: "+996504581717",
     email: "merfigigi@gmail.com]",
   },
 
