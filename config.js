@@ -16,16 +16,16 @@ const GUIDE_CONFIG = {
   defaultLanguage: "ru",
 
   // --- Кто вы ---
-  name: { ru: "Айгуль Асанова", en: "Aigul Asanova", ky: "Айгүл Асанова" },
+  name: { ru: "Жасмина", en: "Jasmina", ky: "Жасмина" },
   role: {
-    ru: "Горный гид · походы, конные и фототуры",
-    en: "Mountain guide · hiking, horseback and photo tours",
-    ky: "Тоо гиди · жөө, ат жана фото турлар",
+    ru: "Горный гид · походы, на пики и фототуры",
+    en: "Mountain guide · hiking, mountain and photo tours",
+    ky: "Тоо гиди · жөө, тоо чокуларына жана фото турлар",
   },
 
   // Фото: положите файл в папку assets и впишите путь, например "assets/avatar.jpg".
   // Пока пусто — в круге показываются инициалы из имени.
-  avatar: "",
+  avatar: "assets/photo.jpg",
 
   // Адрес визитки в интернете, например "https://example.com/guide/".
   // Нужен для QR-кода и кнопки «Поделиться». Если пусто — берётся адрес текущей страницы.
@@ -48,10 +48,10 @@ const GUIDE_CONFIG = {
 
   // --- Статистика (три карточки под именем) ---
   stats: {
-    years: "[N]",      // лет опыта
-    tourists: "[N]",   // туристов
+    years: "Месяц 4",      // лет опыта
+    tourists: "Более 30 ",   // туристов
     rating: "[4.9]",   // рейтинг
-    reviews: "[N]",    // число отзывов
+    reviews: "0",    // число отзывов
   },
 
   // --- Баннеры (карусель) ---
@@ -75,7 +75,7 @@ const GUIDE_CONFIG = {
         en: "Until [date] when you book online",
         ky: "[дата] чейин онлайн жазылганда",
       },
-      image: "",
+      image: "assets/348485-1024x680.jpg",
     },
     {
       id: "photo",
@@ -91,7 +91,7 @@ const GUIDE_CONFIG = {
         en: "A free photo set for every guest",
         ky: "Ар бир конокко эстелик сүрөттөр белекке",
       },
-      image: "",
+      image: "assets/images.jpg",
       background: "linear-gradient(120deg, #3F6B57 0%, #1F3A2E 100%)",
     },
   ],
@@ -102,38 +102,41 @@ const GUIDE_CONFIG = {
   // level — сложность: "easy" (легко), "medium" (средне) или "hard" (тяжело).
   //         По ней работают чипсы-фильтры. Если туров какой-то сложности нет,
   //         чипса этой сложности на странице не показывается.
-  // color — цвет шапки карточки: любой CSS-цвет или градиент.
+  // image — фото для шапки карточки: положите файл в папку assets и впишите путь,
+  //         например "assets/lake.jpg". Лучше горизонтальное, от 800 px по ширине.
+  // color — цвет шапки карточки (любой CSS-цвет или градиент). Если есть image, цвет
+  //         работает как запасной фон, пока фото не загрузилось. Можно указать что-то одно.
   tours: [
     {
       id: "lake",
       title: { ru: "Поход к горному озеру", en: "Hike to a mountain lake", ky: "Тоо көлүнө жөө жүрүш" },
       duration: { ru: "1 день", en: "1 day", ky: "1 күн" },
       level: "medium",
-      price: { ru: "от [ЦЕНА]", en: "from [PRICE]", ky: "[БААСЫ] баштап" },
-      color: "linear-gradient(135deg, #6E8F7E, #2E5443)",
+      price: { ru: "от 1000 сом", en: "from 1000 som ", ky: "[1000 сомдон баштап" },
+      image: "assets/1.jpg",
     },
     {
       id: "jailoo",
-      title: { ru: "Конный тур на джайлоо", en: "Horseback tour to a jailoo", ky: "Жайлоого ат менен тур" },
-      duration: { ru: "2 дня", en: "2 days", ky: "2 күн" },
+      title: { ru: "Тур на Рацека", en: "Trip to Ratsek", ky: "Рацека хижинага тур" },
+      duration: { ru: "1 дня", en: "1 days", ky: "1 күн" },
       level: "easy",
-      price: { ru: "от [ЦЕНА]", en: "from [PRICE]", ky: "[БААСЫ] баштап" },
-      color: "linear-gradient(135deg, #E9B98A, #A8653A)",
+      price: { ru: "от 400 сом", en: "from 400 som", ky: "400 сомдон баштап" },
+      image: "assets/t0ixovqnfbg.jpg",
     },
     {
       id: "photo",
       title: { ru: "Рассвет в ущелье: фототур", en: "Sunrise in the gorge: photo tour", ky: "Капчыгайдагы таң: фототур" },
-      duration: { ru: "6 часов", en: "6 hours", ky: "6 саат" },
+      duration: { ru: "10 часов", en: "10 hours", ky: "10 саат" },
       level: "easy",
-      price: { ru: "от [ЦЕНА]", en: "from [PRICE]", ky: "[БААСЫ] баштап" },
-      color: "linear-gradient(135deg, #B9A7D6, #5C4B85)",
+      price: { ru: "от 400 сом", en: "from 400 som", ky: "400 сомдон баштап" },
+      image: "assets/images.jpg",
     },
   ],
 
   // --- Контакты для файла «Сохранить контакт» (.vcf) ---
   contact: {
-    phone: "+996 [XXX XXX XXX]",
-    email: "[почта@example.com]",
+    phone: "+996504581717",
+    email: "merfigigi@gmail.com]",
   },
 
   // --- Онлайн-запись ---
