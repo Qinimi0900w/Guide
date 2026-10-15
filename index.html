@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="theme-color" content="#1F3A2E">
+  <title>Горный гид — визитка</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&family=Unbounded:wght@500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!--
+    Тексты интерфейса подставляются из i18n.js по атрибутам:
+    data-i18n="ключ" — текст элемента, data-i18n-aria="ключ" — его aria-label.
+  -->
+  <div class="page" id="page">
+    <main id="main">
+
+      <!-- 1. Обложка -->
+      <header class="cover">
+        <svg class="cover__sun" viewBox="0 0 80 80" width="80" height="80" aria-hidden="true">
+          <circle cx="40" cy="40" r="36" fill="#FFE2B8" opacity="0.35"/>
+          <circle cx="40" cy="40" r="26" fill="#FFE2B8"/>
+        </svg>
+        <svg class="cover__cloud cover__cloud--1" viewBox="0 0 120 40" width="120" height="40" aria-hidden="true">
+          <ellipse cx="40" cy="26" rx="34" ry="12" fill="#FFFFFF" opacity="0.85"/>
+          <ellipse cx="70" cy="20" rx="26" ry="14" fill="#FFFFFF" opacity="0.85"/>
+        </svg>
+        <svg class="cover__cloud cover__cloud--2" viewBox="0 0 120 40" width="90" height="30" aria-hidden="true">
+          <ellipse cx="40" cy="26" rx="34" ry="12" fill="#FFFFFF" opacity="0.65"/>
+          <ellipse cx="70" cy="20" rx="26" ry="14" fill="#FFFFFF" opacity="0.65"/>
+        </svg>
+        <svg class="cover__mountains cover__mountains--back" viewBox="0 0 430 300" preserveAspectRatio="none" aria-hidden="true">
+          <path d="M0 230 L80 130 L130 175 L215 80 L290 165 L350 115 L430 190 L430 300 L0 300 Z" fill="#6E8F7E"/>
+          <path d="M205 92 L215 80 L226 95 L218 92 L212 98 Z" fill="#FFFFFF"/>
+        </svg>
+        <svg class="cover__mountains cover__mountains--front" viewBox="0 0 430 300" preserveAspectRatio="none" aria-hidden="true">
+          <path d="M0 262 L95 190 L170 240 L260 170 L350 235 L430 205 L430 300 L0 300 Z" fill="#1F3A2E"/>
+        </svg>
+        <div class="badge reveal">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>
+          <span data-i18n="badge">Проверенный гид</span>
+        </div>
+      </header>
+
+      <div class="content">
+        <!-- 2. Аватар -->
+        <div class="avatar reveal" style="--d:1">
+          <div class="avatar__inner" id="avatar"></div>
+        </div>
+
+        <!-- 3. Имя и должность -->
+        <section class="intro reveal" style="--d:2">
+          <h1 class="intro__name" id="guide-name"></h1>
+          <p class="intro__role" id="guide-role"></p>
+        </section>
+
+        <!-- 4. Статистика -->
+        <section class="stats reveal" style="--d:3" data-i18n-aria="statsAria" aria-label="Статистика">
+          <div class="stat"><div class="stat__value" id="stat-years"></div><div class="stat__label" data-i18n="statYears">лет опыта</div></div>
+          <div class="stat"><div class="stat__value" id="stat-tourists"></div><div class="stat__label" data-i18n="statTourists">туристов</div></div>
+          <div class="stat"><div class="stat__value stat__value--accent" id="stat-rating"></div><div class="stat__label" id="stat-reviews"></div></div>
+        </section>
+
+        <!-- 5. Баннеры-карусель (слайды создаёт script.js из config.js) -->
+        <section class="carousel reveal" style="--d:4" id="carousel" role="region" aria-roledescription="carousel" data-i18n-aria="carouselAria" aria-label="Акции" hidden>
+          <div class="carousel__track" id="carousel-track" tabindex="0"></div>
+          <div class="carousel__controls" id="carousel-controls">
+            <div class="carousel__dots" id="carousel-dots"></div>
+            <button type="button" class="carousel__pause" id="carousel-pause" data-playing="true" aria-label="Остановить автопрокрутку">
+              <svg class="icon-pause" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><rect x="6" y="5" width="4" height="14" rx="1"/><rect x="14" y="5" width="4" height="14" rx="1"/></svg>
+              <svg class="icon-play" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7 4.5v15a1 1 0 0 0 1.5.86l12-7.5a1 1 0 0 0 0-1.72l-12-7.5A1 1 0 0 0 7 4.5z"/></svg>
+            </button>
+          </div>
+        </section>
+
+        <!-- 6. Обо мне: языки переключают страницу, чипсы сложности фильтруют туры -->
+        <section class="section reveal" style="--d:5" aria-labelledby="about-h">
+          <h2 class="section__title" id="about-h" data-i18n="aboutTitle">Обо мне</h2>
+          <p class="about__text" id="about-text"></p>
+          <div class="chips">
+            <div class="chips__group" role="group" id="lang-chips" data-i18n-aria="langGroup" aria-label="Язык страницы"></div>
+            <div class="chips__group" role="group" id="topic-chips" data-i18n-aria="topicGroup" aria-label="Сложность туров"></div>
+          </div>
+        </section>
+
+        <!-- 7. Туры -->
+        <section class="section reveal" style="--d:6" aria-labelledby="tours-h" id="tours-section">
+          <h2 class="section__title" id="tours-h" data-i18n="toursTitle">Туры</h2>
+          <div class="filter" id="filter" hidden>
+            <p class="filter__text" id="filter-text"></p>
+            <button type="button" class="filter__reset" id="filter-reset" data-i18n="showAll">Показать все</button>
+          </div>
+          <p class="sr-only" id="filter-live" role="status" aria-live="polite"></p>
+          <div class="tours" id="tours"></div>
+        </section>
+
+        <!-- 8–9. Контакт и QR -->
+        <section class="section reveal" style="--d:7" data-i18n-aria="contactAria" aria-label="Контакт">
+          <button type="button" class="btn btn--outline" id="save-contact">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg>
+            <span data-i18n="saveContact">Сохранить контакт</span>
+          </button>
+
+          <div class="share">
+            <div class="share__qr" id="qr" role="img" data-i18n-aria="qrAria" aria-label="QR-код со ссылкой на визитку"></div>
+            <div class="share__body">
+              <h3 class="share__title" data-i18n="shareTitle">Поделиться визиткой</h3>
+              <p class="share__text" data-i18n="shareText">Покажите QR туристу, и визитка откроется у него в телефоне</p>
+              <button type="button" class="btn btn--small" id="share-btn" hidden></button>
+              <p class="share__status" id="share-status" role="status" aria-live="polite"></p>
+            </div>
+          </div>
+        </section>
+      </div>
+    </main>
+
+    <!-- 10. Онлайн-запись: обычная внешняя ссылка, адрес берётся из bookingUrl в config.js -->
+    <div class="booking-bar">
+      <a class="btn btn--primary btn--big pulse" id="open-booking" href="#" target="_blank" rel="noopener noreferrer">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="3"/><path d="M3 10h18M8 3v4M16 3v4"/></svg>
+        <span data-i18n="openBooking">Онлайн-запись</span>
+      </a>
+    </div>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+  <script src="config.js"></script>
+  <script src="i18n.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
